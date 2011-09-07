@@ -79,7 +79,7 @@
 						
 						console.log('\t\tfile: ' + f);
 						
-						var path = [ null, 'code' , c , s , f , '.js' ].join("\\");
+						var path = [ 'code' , c , s , f + '.js' ].join("\\");
 						
 						valid_paths.push(path);
 						
@@ -92,16 +92,13 @@
 			});
 		
 			$.each(valid_paths, function(k, v) { 
-				console.log('valid_path: ' + v);
+				// console.log('valid_path: ' + v);
+				
+				jQuery.getScript( v );
 			});
 				
 		}
-		
-		$(function() {
-			
-			// $.getJSON('loader/sample.js');
-			
-		});
+
 		
 	</script>
 	
