@@ -1,0 +1,3 @@
+[submodule "Skeleton"]
+	path = Skeleton
+	url = git://github.com/weisjohn/Skeleton.git

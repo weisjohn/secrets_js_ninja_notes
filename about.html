@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Notes Viewer</title>
+	<meta name="description" content="">
+	<meta name="author" content="John Weis">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="../Skeleton/css/base.css">
+	<link rel="stylesheet" href="../Skeleton/css/skeleton.css">
+	<link rel="stylesheet" href="../Skeleton/css/layout.css">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="../Skeleton/img/favicon.ico">
+	<link rel="apple-touch-icon" href="../Skeleton/img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../Skeleton/img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../Skeleton/img/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Secrets of the JavaScript Ninja Notes Runner</h1>
+			<h5>Version 0.1</h5>
+			<hr />
+		</div>
+		<div class="one-third column">
+			<h3>What?</h3>
+			<p>These are snippets / notes from the book that I made / used to learn the techniques from John Resig and Bear Bibeault's <a href="http://jsninja.com">Secrets of the JavaScript Ninja</a>. </p>
+		</div>
+		<div class="one-third column">
+			<h3>Why?</h3>
+			<p>For fun and profit. Mainly because I was out of stuff to do...</p>
+		</div> 
+		<div class="one-third column">
+			<h3>How?</h3>
+			<p>
+				I have a python script that builds a JSON object which maps those files that exist in the /chapters directory.  I then use the <code>jQuery.load()</code> function to insert into the DOM and run the JS. 
+			</p>				
+			  <!-- This makes us of the Function() function to run each example/note/snippet. (that is something that I learned from Paul Irish's <a href="http://paulirish.com/2010/10-things-i-learned-from-the-jquery-source/" target="_blank">10 Things I Learned from the jQuery Source</a>)</p> -->
+		</div>
+
+	</div><!-- container -->
+
+
+
+	<!-- JS
+	================================================== -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script src="../Skeleton/js/tabs.js"></script>
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

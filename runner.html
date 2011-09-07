@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Notes Viewer</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="../Skeleton/css/base.css">
+	<link rel="stylesheet" href="../Skeleton/css/skeleton.css">
+	<link rel="stylesheet" href="../Skeleton/css/layout.css">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="../Skeleton/img/favicon.ico">
+	<link rel="apple-touch-icon" href="../Skeleton/img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../Skeleton/img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../Skeleton/img/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Secrets of the JavaScript Ninja Notes Runner</h1>
+			<h5>Version 0.1</h5>
+			<a href="about.html">What?</a>
+			<hr />
+		</div>
+		
+
+	</div><!-- container -->
+
+
+
+	<!-- JS
+	================================================== -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		
+		function overcome_xhr_local(data) {
+			
+			// console.dir(data);
+			var valid_paths = [];
+			
+			// console.log('done');
+			var chapters = data.chapters;
+			
+			$.each(chapters, function(c, sec){
+				console.log('chapter: ' + c);
+				
+				$.each(sec.sections, function(s, fil) {
+					console.log('\tsection: ' + s);
+					
+					$.each(fil.files, function(k, f) {
+						
+						console.log('\t\tfile: ' + f);
+						
+						var path = [ null, 'code' , c , s , f , '.js' ].join("\\");
+						
+						valid_paths.push(path);
+						
+						console.log('path generated: ' +  path);
+						
+					});
+					
+				});
+					
+			});
+		
+			$.each(valid_paths, function(k, v) { 
+				console.log('valid_path: ' + v);
+			});
+				
+		}
+		
+		$(function() {
+			
+			// $.getJSON('loader/sample.js');
+			
+		});
+		
+	</script>
+	
+		
+	<script src="loader/sample.js"></script>
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
