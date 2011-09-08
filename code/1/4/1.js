@@ -9,7 +9,6 @@
  * 
  * I decided to make a function now, and compare once he gives me his...
  */
-console.log('running inside 1.js');
 
 (function() {
 
