@@ -70,20 +70,20 @@
 			var chapters = data.chapters;
 			
 			$.each(chapters, function(c, sec){
-				console.log('chapter: ' + c);
+				//console.log('chapter: ' + c);
 				
 				$.each(sec.sections, function(s, fil) {
-					console.log('\tsection: ' + s);
+					//console.log('\tsection: ' + s);
 					
 					$.each(fil.files, function(k, f) {
 						
-						console.log('\t\tfile: ' + f);
+						//console.log('\t\tfile: ' + f);
 						
 						var path = [ 'code' , c , s , f + '.js' ].join("\\");
 						
 						valid_paths.push(path);
 						
-						console.log('path generated: ' +  path);
+						//console.log('path generated: ' +  path);
 						
 					});
 					
