@@ -1,4 +1,4 @@
-overcome_xhr_local({
+var codez = {
     
     'chapters' : {
         '1' : {
@@ -105,6 +105,15 @@ overcome_xhr_local({
                 }
             } 
         },
+        '7' : {
+            'sections' : {
+                '1' : {
+                    'files' : {
+                        '0' : '1'
+                    }
+                }
+            }
+        }
     }
     
-});
+};

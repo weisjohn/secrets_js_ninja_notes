@@ -21,13 +21,14 @@
 
 	<!-- CSS
   ================================================== -->
-	<link rel="stylesheet" href="../Skeleton/css/base.css">
-	<link rel="stylesheet" href="../Skeleton/css/skeleton.css">
-	<link rel="stylesheet" href="../Skeleton/css/layout.css">
+	<link rel="stylesheet" href="/Skeleton/css/base.css">
+	<link rel="stylesheet" href="/Skeleton/css/skeleton.css">
+	<link rel="stylesheet" href="/Skeleton/css/layout.css">
 
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="../Skeleton/img/favicon.ico">
+	<!-- <link rel="shortcut icon" href="../Skeleton/img/favicon.ico"> -->
+
 	<link rel="apple-touch-icon" href="../Skeleton/img/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../Skeleton/img/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="../Skeleton/img/apple-touch-icon-114x114.png">
@@ -50,6 +51,12 @@
 			<hr />
 		</div>
 		
+		<form id="chooser" name="chooser">
+
+			<label for="chapter">Chapter</label>
+			<input name="chapter" id="chapter" type="number" />
+
+		</form>
 
 	</div><!-- container -->
 
@@ -61,7 +68,7 @@
 
 	<script type="text/javascript">
 		
-		function overcome_xhr_local(data) {
+		function overcome_xhr_local(data, chapter) {
 			
 			// console.dir(data);
 			var valid_paths = [];
@@ -70,24 +77,27 @@
 			var chapters = data.chapters;
 			
 			$.each(chapters, function(c, sec){
-				//console.log('chapter: ' + c);
 				
-				$.each(sec.sections, function(s, fil) {
-					//console.log('\tsection: ' + s);
-					
-					$.each(fil.files, function(k, f) {
+				if (chapter !== undefined && chapter == c) {
+
+					$.each(sec.sections, function(s, fil) {
+						//console.log('\tsection: ' + s);
 						
-						//console.log('\t\tfile: ' + f);
-						
-						var path = [ 'code' , c , s , f + '.js' ].join("\\");
-						
-						valid_paths.push(path);
-						
-						//console.log('path generated: ' +  path);
+						$.each(fil.files, function(k, f) {
+							
+							//console.log('\t\tfile: ' + f);
+							
+							var path = [ 'code' , c , s , f + '.js' ].join("\\");
+							
+							valid_paths.push(path);
+							
+							//console.log('path generated: ' +  path);
+							
+						});
 						
 					});
-					
-				});
+
+				}
 					
 			});
 		
@@ -98,6 +108,36 @@
 			});
 				
 		}
+
+		$(function() {
+
+			var run_test = function() {
+
+				overcome_xhr_local(codez, $("#chapter").val() )
+
+			}
+
+			var rchapter = /chapter=(\d)/;
+
+			if (rchapter.test(location.href)) {
+
+				var matches = location.href.match(rchapter);
+
+				var chapter_num = matches[1];
+
+				$("#chapter").val(chapter_num);
+
+				run_test();
+			}
+
+			$("#chapter").blur(function() { run_test() });
+
+			$("#choose").bind("submit", function(e){
+				e.preventDefault();
+				return false;
+			});
+
+		});
 		
 	</script>
 	
