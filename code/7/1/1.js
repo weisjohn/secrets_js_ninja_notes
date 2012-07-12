@@ -12,6 +12,6 @@
 
 	console.log( pattern1.test("test") && pattern2.test("test") );
 
-
+	
 
 })();
