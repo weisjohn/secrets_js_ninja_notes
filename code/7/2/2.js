@@ -116,6 +116,49 @@
 	find_matches(pretty_good_TLD, "http://example.notaglobaltld/");
 
 	
+	// Back References 
+	var tag_finder = /<(\w+)>(.+)<\/\1>/;
+
+	find_matches(tag_finder, "<p> a paragraph </p>");
+	find_matches(tag_finder, "<b> bold italics? </i>");
+	find_matches(tag_finder, "<b> <i>bold and italic</i> </b>");
+
+	console.log('');
+
+
+	String.prototype.repeat = function (num) {
+	  var a = [];
+	  a.length = parseInt(num, 10) + 1;
+	  return a.join(this);
+	};
+
+
+	// a very weak HTML parser
+	function faux_parse_HTML(html, depth) {
+
+		!!depth || (depth = 0); 
+
+		if (depth == 0) {
+			console.log('Source: ' + html + "\nElements to create:");
+
+		}
+
+		var matches = html.match(tag_finder);
+
+		if (matches != null && matches.length >= 2) {
+
+			console.log(
+				"\t".repeat(depth) + matches[1].toUpperCase()
+			)
+			
+			faux_parse_HTML(matches[2], ++depth);
+
+		} 
+	}
+
+
+	faux_parse_HTML("<div> <p> foo <b> bold </b> </p> </div>");
+
 
 })();
 
