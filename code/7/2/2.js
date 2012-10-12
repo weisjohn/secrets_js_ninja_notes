@@ -93,7 +93,7 @@
 	test_regex(transfer_protocol, "_tp://johnweis.com/");
 
 	// Pseudo Non-Terminating Decimal Represenation of a Rational Number
-	var pntdrrn = /\d{5,9999}/;
+	var pntdrrn = /\d{3,}/;
 
 	for (var i = 1; i < 10; i++) {
 		for (var j = 1; j <= i-1; j++) {
@@ -140,7 +140,6 @@
 
 		if (depth == 0) {
 			console.log('Source: ' + html + "\nElements to create:");
-
 		}
 
 		var matches = html.match(tag_finder);
