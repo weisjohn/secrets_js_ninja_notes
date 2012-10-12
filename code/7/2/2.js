@@ -18,7 +18,7 @@
 
 	function test_pntdrrn_regex(pattern, sample, dividend, divisor) {
 		console.log( 
-			dividend + "/" + divisor + "\t\t" +
+			dividend + "/" + divisor + "\t" +
 			pattern.toString() +
 			( pattern.test(sample) ? "" : " doesn't" ) + " match" + 
 			( pattern.test(sample) ? "es " : " " ) + 
@@ -133,7 +133,7 @@
 	};
 
 
-	// a very weak HTML parser
+	// a very weak HTML parser that only handles snippets
 	function faux_parse_HTML(html, depth) {
 
 		!!depth || (depth = 0); 
@@ -151,12 +151,11 @@
 			)
 			
 			faux_parse_HTML(matches[2], ++depth);
-
 		} 
 	}
 
 
-	faux_parse_HTML("<div> <p> foo <b> bold </b> </p> </div>");
+	faux_parse_HTML("<div> <p> foo <strong> text </strong> </p> </div>");
 
 
 })();
