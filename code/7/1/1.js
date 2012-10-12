@@ -16,6 +16,15 @@
 		);
 	}
 
+	function test_pntdrrn_regex(pattern, sample, dividend, divisor) {
+		console.log( 
+			dividend + "/" + divisor + "\t\t" +
+			pattern.toString() +
+			( pattern.test(sample) ? "" : " doesn't" ) + " match" + 
+			( pattern.test(sample) ? "es " : " " ) + 
+			"`" + sample + "`"
+		);
+	}
 
 	var regex_literal = /test/;
 	var regex_constructor = new RegExp("test");
@@ -71,24 +80,14 @@
 	test_regex(transfer_protocol, "git://johnweis.com/");
 	test_regex(transfer_protocol, "_tp://johnweis.com/");
 
-function test_pntdrrn_regex(pattern, sample, dividend, divisor) {
-	console.log( 
-		dividend + "/" + divisor + "\t\t" +
-		pattern.toString() +
-		( pattern.test(sample) ? "" : " doesn't" ) + " match" + 
-		( pattern.test(sample) ? "es " : " " ) + 
-		"`" + sample + "`"
-	);
-}
+	// Pseudo Non-Terminating Decimal Represenation of a Rational Number
+	var pntdrrn = /\d{5,9999}/;
 
-// Pseudo Non-Terminating Decimal Represenation of a Rational Number
-var pntdrrn = /\d{5,9999}/;
-
-for (var i = 1; i < 10; i++) {
-	for (var j = 1; j <= i-1; j++) {
-		test_pntdrrn_regex(pntdrrn, (j/i) + "", j, i);	
+	for (var i = 1; i < 10; i++) {
+		for (var j = 1; j <= i-1; j++) {
+			test_pntdrrn_regex(pntdrrn, (j/i) + "", j, i);	
+		}
 	}
-}
 
 	var unicode_plane = /[\x2708]/;
 
