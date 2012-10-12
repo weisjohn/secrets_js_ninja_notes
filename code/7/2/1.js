@@ -107,7 +107,7 @@
 
 
 	// now we're learning about grouping!
-
+	// `|` provies alternation, logical OR 
 	var pretty_good_TLD = /\.(com|net|org|edu|info|name|xxx|us|me|uk|coop|name).*$/;
 
 	find_matches(pretty_good_TLD, "http://johnweis.com/");
@@ -115,7 +115,7 @@
 	find_matches(pretty_good_TLD, "http://informationarchitects.net/");
 	find_matches(pretty_good_TLD, "http://example.notaglobaltld/");
 
-
+	
 
 })();
 
