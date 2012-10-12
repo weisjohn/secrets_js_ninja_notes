@@ -26,6 +26,18 @@
 		);
 	}
 
+	function find_matches(pattern, sample) {
+		if (typeof sample == "string") {
+			console.log( 
+				pattern.toString() +
+				( pattern.test(sample) ? "" : " doesn't" ) + " match" + 
+				( pattern.test(sample) ? "es " : " " ) + 
+				"`" + sample + "`" + 
+				( pattern.test(sample) ? (" on " + JSON.stringify( sample.match(pattern) ) ) : "" ) 
+			);
+		}
+	}
+
 	var regex_literal = /test/;
 	var regex_constructor = new RegExp("test");
 	
@@ -93,25 +105,17 @@
 
 	test_regex(unicode_plane, "I'm a ✈ setter");
 
+
+	// now we're learning about grouping!
+
+	var pretty_good_TLD = /\.(com|net|org|edu|info|name|xxx|us|me|uk|coop|name).*$/;
+
+	find_matches(pretty_good_TLD, "http://johnweis.com/");
+	find_matches(pretty_good_TLD, "http://neumont.edu/");
+	find_matches(pretty_good_TLD, "http://informationarchitects.net/");
+	find_matches(pretty_good_TLD, "http://example.notaglobaltld/");
+
+
+
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
