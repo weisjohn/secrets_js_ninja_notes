@@ -132,7 +132,6 @@
 	  return a.join(this);
 	};
 
-
 	// a very weak HTML parser that only handles snippets
 	function faux_parse_HTML(html, depth) {
 
@@ -153,7 +152,6 @@
 			faux_parse_HTML(matches[2], ++depth);
 		} 
 	}
-
 
 	faux_parse_HTML("<div> <p> foo <strong> text </strong> </p> </div>");
 
