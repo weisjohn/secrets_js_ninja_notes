@@ -27,7 +27,7 @@
 		"_" : "i"
 	};
 
-	console.log('\t\tmarkdown sources:');
+	console.log('markdown sources:');
 	for (var i = 0, len = markdown_sources.length; i < len; i++) {
 		console.log(markdown_sources[i]);
 		html_results.push( 
@@ -38,7 +38,7 @@
 
 	}
 
-	console.log('\t\ttransformed into html:');
+	console.log('transformed into html:');
 	for (var i = 0, len = html_results.length; i < len; i++) {
 		console.log(html_results[i]);
 	}
