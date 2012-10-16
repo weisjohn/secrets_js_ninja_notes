@@ -2,11 +2,9 @@
  * Concept: Back References
  * 
  * Allow you to grab a reference to the string matching earlier.
- *
  * This shows a sample of what it would be like to write a simple modified Markdown syntax.
  * 
  */
-
 
 (function() {
 	
@@ -31,11 +29,10 @@
 	for (var i = 0, len = markdown_sources.length; i < len; i++) {
 		console.log(markdown_sources[i]);
 		html_results.push( 
-			markdown_sources[i] = markdown_sources[i].replace(styled_word_regex, function(match, p1, p2, p3){
+			markdown_sources[i].replace(styled_word_regex, function(match, p1, p2, p3){
 				return ("<" + down_tag[p1] + ">" + p2 + "</" + down_tag[p3] + ">");
 			})
 		);
-
 	}
 
 	console.log('transformed into html:');
