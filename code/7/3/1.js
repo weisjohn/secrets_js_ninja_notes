@@ -30,15 +30,17 @@
 	bench(100000, function() { foo2.test("sample Foo"); });
 
 	// testing the speed of compliation, whether literal or construction regex compilation is faster
-	bench(100000, function() { 
+	bench(10000, function() { 
 		var foo1 = new RegExp("foo", "i");
 		foo1.test("sample foo bar");
 	});
-	
-	bench(100000, function() { 
+
+	bench(10000, function() { 
 		var foo2 = /foo/i;
 		foo2.test("sample foo bar");
 	});
+
+
 
 })();
 
