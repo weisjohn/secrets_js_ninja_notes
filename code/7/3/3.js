@@ -7,7 +7,7 @@
 
 (function() {
 
-	function find_in_string(match, source) {
+	function find_string_with_word(match, source) {
 
 		// double escape 
 		var regex = new RegExp("(^|\\s)" + match + "(\\s|$)");
