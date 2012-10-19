@@ -36,4 +36,10 @@
 			results.search, results.instances, results.text);
 	};
 
+	for (var i = 0; i < sources.length; i++) {
+		var results = find_and_highlight( 'at' , sources[i] );
+		console.log("%s was found %d times in \n \t%s \n", 
+			results.search, results.instances, results.text);
+	};
+
 })();

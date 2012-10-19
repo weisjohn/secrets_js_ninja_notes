@@ -19,5 +19,5 @@
 	
 	getElements("img");
 	getElements("div");
-	
+
 })();
