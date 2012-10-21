@@ -21,31 +21,28 @@
 
 	function perf(name, func) {
 		
-		var d = new Date(),
-			start = d.getMilliseconds(),
-			stop = null;
+		var start = Date.now(), stop = null;
 			
 		func();
 		
-		d = new Date();
-		stop = d.getMilliseconds();
+		stop = Date.now();
 		
 		console.log(name , "took", stop-start , "milliseconds.");	
 	}
 	
 	
 	
-	perf("String Concatenation", function(){
-		var name = "Fred";
-		for (var i = 0; i < 10; i++) {
-			name += name;
+	perf("1000000 String Concatenations", function(){
+		var name = "";
+		for (var i = 0; i < 1000000; i++) {
+			name += "."
 		}
 	});
 	
 	
 	
-	perf("1000 Random Number Generations", function(){
-		var c = 1000,
+	perf("1000000 Random Number Generations", function(){
+		var c = 1000000,
 			num = 0;
 		for (var i = 0; i < c; i++){
 			num = Math.floor(Math.random()*1000);
