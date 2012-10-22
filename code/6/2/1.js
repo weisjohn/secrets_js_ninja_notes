@@ -11,9 +11,6 @@
 
 	console.log('run 6.2.1');
 
-	// TODO: kill this
-	//clear();
-
 	// variables to minimize re-init waste
 	var first = (new Date).getTime(),
 		last,
@@ -28,7 +25,7 @@
 		max = Number.NEGATIVE_INFINITY,
 		times = [];
 	
-	
+	window.times = times;
 	
 	
 	// runs as fast as it can

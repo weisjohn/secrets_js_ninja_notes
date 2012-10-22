@@ -18,7 +18,6 @@
 	
 	// worker
 	setTimeout(function() { 
-		console.log('iteration:', iteration++);
 	
 		start = (new Date).getTime();
 		stop = (new Date).getTime();

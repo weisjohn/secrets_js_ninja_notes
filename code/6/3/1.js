@@ -9,6 +9,8 @@
 
 (function() {
 
+	setTimeout(function() { 
+
 	var start = (new Date).getTime(),
 		stop = (new Date).getTime(),
 		seconds = 10;
@@ -18,6 +20,8 @@
 		stop = (new Date).getTime();
 	}
 	console.log('finished');
+
+	}, 5000);
 
 })();
 

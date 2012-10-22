@@ -26,6 +26,6 @@
 	setTimeout(function() {
 		clearInterval(t1);
 		clearInterval(t2); 
-	}, 500);
+	}, 100);
 
 })();
