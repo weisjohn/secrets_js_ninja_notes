@@ -51,6 +51,11 @@
 	// eval creates objects
 	eval_and_assert("var a = { 'b' : 2 };", "(function() { return typeof a !== \"undefined\" })()");
 
+	// eval fails on invalid syntax 
+	eval_and_assert("var c = { 'a' : '1' ;", "(function() { return typeof c === \"undefined\" })()");
+
+	// and it doesn't complete any of the code 
+	eval_and_assert("var d = { 'foo' : 'bar' }; var e = { 'a' : '1' ;", "(function() { return (typeof d === \"undefined\") && typeof e === \"undefined\" })()");
 
 })();
 
