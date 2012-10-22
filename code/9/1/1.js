@@ -13,10 +13,7 @@
 	// if `assertion` is a string, it will be `eval()`ed as well and tested
 	// if `assertion` is a value, the result of the `code` that was `eval()`ed will be compared
 	function eval_and_assert(code, assertion) {
-
-		// this is a bit terse, ret is used to see what `eval()` returns 
 		
-
 		// try to eval the code, catch errors
 		try {
 			// what was *returned* from our `eval()`
@@ -56,6 +53,9 @@
 
 	// and it doesn't complete any of the code 
 	eval_and_assert("var d = { 'foo' : 'bar' }; var e = { 'a' : '1' ;", "(function() { return (typeof d === \"undefined\") && typeof e === \"undefined\" })()");
+
+	// and it doesn't poison scope
+	eval_and_assert("window.d = { 'foo' : 'd' }; ", "(function() { return (typeof d === \"undefined\") && (typeof window.d !== \"undefined\"); })");
 
 })();
 
