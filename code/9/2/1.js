@@ -31,7 +31,7 @@
 			// print out the internals
 			console.log('\tfunction body: \n\t' + source);
 
-			console.dir(parts);
+			// console.dir(parts);
 		}
 	}
 
