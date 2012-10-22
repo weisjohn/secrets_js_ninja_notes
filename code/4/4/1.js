@@ -6,12 +6,26 @@
  */
 (function(){
 
+	function bench(iterations, test) {
+		if (typeof test == "function") {
+			var start = Date.now();
+			console.log('start: ' + start);
+			for (var i = 0; i < iterations; i++) {
+				test();
+			}
+			var end = Date.now();
+			console.log('end: ' + end);
+			console.log(iterations + ' iterations took ' + (end-start) + 'ms');
+		}
+	}
 
-    Function.prototype.memoized = function(key) {
-        this._values = this._values || {};
-        return this._values[key] !== undefined ? this._values[key] : this._values[key] = this.apply(this, arguments);
+    Function.prototype.memoize = function() {
+    	var self = this, cache = {};
+        return function(arg) {
+        	return (arg in cache) ? cache[arg] : cache[arg] = self(arg);
+        }
     };
-	
+		
 	
     function isPrime(num) {
         var prime = num != 1;
@@ -23,8 +37,17 @@
         }
         return prime;
     }
-    
-	console.log('prime', isPrime.memoized(5));
-	console.log('value is memoized?', isPrime._values[5]);
+    var memoizedPrime = isPrime.memoize();
+
+    console.log('benching isPrime');
+    bench(10000000, function() {
+    	isPrime(17);
+    });
+
+    console.log('benching memoizedPrime');
+    bench(10000000, function() {
+    	memoizedPrime(17);
+    });
+
     
 })();
