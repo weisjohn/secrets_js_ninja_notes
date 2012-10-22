@@ -35,6 +35,4 @@
 	console.log("john.hasOwnProperty('talk')", john.hasOwnProperty('talk')); // returns false, because `talk` is on the Person prototype
 	console.log('john.talk();', john.talk());
 
-
-
 })();
