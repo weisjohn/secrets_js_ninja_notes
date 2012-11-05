@@ -19,5 +19,14 @@ function bench(iterations, test, name) {
 		console.log(iterations + ' iterations took ' + (end-start) + 'ms');
 	}
 
-		
+}
+
+
+function assert(test, message) {
+
+	if (!!test) {
+		console.log('pass: ' + message);
+	} else {
+		console.log('fail: ' + message);
+	}
 }
