@@ -3,6 +3,8 @@
  * 
  */
 
+(function() {
+
 	var translations = {
 		"for": "htmlFor",
 		"class": "className",
@@ -47,3 +49,4 @@
 	// awesomeness
 	document.body.removeChild(sample_form);
 
+})();
