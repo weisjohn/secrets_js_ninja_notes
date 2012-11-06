@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Notes Viewer</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="skeleton_css/base.css">
+	<link rel="stylesheet" href="skeleton_css/skeleton.css">
+	<link rel="stylesheet" href="skeleton_css/layout.css">
+
+	<!-- Favicons
+	================================================== -->
+	<!-- <link rel="shortcut icon" href="../Skeleton/img/favicon.ico"> -->
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Secrets of the JavaScript Ninja Notes Runner</h1>
+			<h5>Version 0.1</h5>
+			<a href="about.html">What?</a>
+			<hr />
+		</div>
+		
+		<form id="chooser" name="chooser">
+
+			<label for="chapter">Chapter</label>
+			<input name="chapter" id="chapter" type="number" />
+
+		</form>
+
+	</div><!-- container -->
+
+
+
+	<!-- JS
+	================================================== -->
+	<script src="jquery-1.7.2.min.js"></script>
+
+	<!-- some simple utilities for all files -->
+	<script src="/code/0/base.js"></script>
+
+	<script type="text/javascript">
+		
+		function overcome_xhr_local(data, chapter) {
+			
+			// console.dir(data);
+			var valid_paths = [];
+			
+			// console.log('done');
+			var chapters = data.chapters;
+			
+			$.each(chapters, function(c, sec){
+				
+				if (chapter !== undefined && chapter == c) {
+
+					$.each(sec.sections, function(s, fil) {
+						//console.log('\tsection: ' + s);
+						
+						$.each(fil.files, function(k, f) {
+							
+							//console.log('\t\tfile: ' + f);
+							
+							var path = [ 'code' , c , s , f + '.js' ].join("\\");
+							
+							valid_paths.push(path);
+							
+							//console.log('path generated: ' +  path);
+							
+						});
+						
+					});
+
+				}
+					
+			});
+		
+			$.each(valid_paths, function(k, v) { 
+				// console.log('valid_path: ' + v);
+				
+				jQuery.getScript( v );
+			});
+				
+		}
+
+		$(function() {
+
+			var run_test = function() {
+
+				overcome_xhr_local(codez, $("#chapter").val() )
+
+			}
+
+			var rchapter = /chapter=(\d+)/;
+
+			if (rchapter.test(location.href)) {
+
+				var matches = location.href.match(rchapter);
+
+				var chapter_num = matches[1];
+
+				$("#chapter").val(chapter_num);
+
+				run_test();
+			}
+
+			$("#chapter").blur(function() { run_test() });
+
+			$("#choose").bind("submit", function(e){
+				e.preventDefault();
+				return false;
+			});
+
+		});
+		
+	</script>
+	
+		
+	<script src="loader/sample.js"></script>
+
+
+	<script type="x/custom-template">
+		<div id="sample">
+			<p> lolem </p>
+		</div>
+	</script>
+
+	<!-- necessary for 12.1.2.js -->
+	<form id="foo" action="#bar"></form>
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
