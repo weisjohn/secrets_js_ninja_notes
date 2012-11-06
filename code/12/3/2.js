@@ -5,7 +5,7 @@
 
 (function() {
 
-	window.color = function(element, name, value) {
+	window.getColor = function(element, property) {
 		// name = translations[name] || name;
 
 	    name = name.replace(/-([a-z])/ig, function (all, letter) {
